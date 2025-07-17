@@ -1,11 +1,10 @@
 class Optic:
-    def __init__(self, raw_desc, height, weight, manufacturer, name):
-        self.raw_desc = raw_desc
+    def __init__(self, name: str, height: str, weight: str, raw_desc: str, optic_type: str):
+        self.name = name
         self.height = height
         self.weight = weight
-        self.manufacturer = manufacturer
-        self.name = name
+        self.raw_desc = raw_desc
+        self.optic_type = optic_type
 
-class RedDotSight(Optic):
-    def __init__(self, raw_desc, height, weight, manufacturer, name):
-        super().__init__(raw_desc, height, weight, manufacturer, name)
+    def __repr__(self):
+        return f"Optic(name='{self.name}', type='{self.optic_type}')"
