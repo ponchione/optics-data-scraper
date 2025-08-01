@@ -1,6 +1,6 @@
 import csv
 
-from config import HOME_URL, DATA_DIR
+from config import HOME_URL, SAGE_RAT_OUTPUT_DIR
 from fetch import fetch_page_content
 from typing import Dict, List
 
@@ -55,7 +55,7 @@ def build_save_list(data: Dict[str, str], name_header: str) -> List[Dict[str, st
 
 
 def write_to_csv(file_name: str, headers: List[str], save_list: List[Dict[str, str]]) -> None:
-    save_path = DATA_DIR / file_name
+    save_path = SAGE_RAT_OUTPUT_DIR / file_name
     try:
         with open(save_path, 'w', encoding='utf-8', newline='') as csvfile:
             writer = csv.DictWriter(csvfile, fieldnames=headers)
