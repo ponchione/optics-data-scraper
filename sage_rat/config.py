@@ -15,7 +15,21 @@ LONG_RANGE_HUNT_URL = "https://sageratsafaris.com/master-list-of-long-range-hunt
 ONE_MILE_URL = "https://sageratsafaris.com/one-mile-rifle-scopes/"
 LONG_RANGE_FFP = "https://sageratsafaris.com/master-list-ffp-long-range-rifle-scopes/"
 
-URL_LIST = [RDS_URL, REF_HOLO_URL, MAGNIF_URL, PRISM_URL, MOUNTS_URL, FIXED_POW_URL, LPVO_FFP_URL, MPVO_URL]
+URL_AND_TYPE = {
+    "rds": RDS_URL,
+    "ref_holo": REF_HOLO_URL,
+    "magnifier": MAGNIF_URL,
+    "prism": PRISM_URL,
+    "mount": MOUNTS_URL,
+    "fixed_power": FIXED_POW_URL,
+    "lvpo_ffp": LPVO_FFP_URL,
+    # LPVO_SFP_URL,  URL PAGE CONTENT IS MASSIVELY BROKEN
+    "mpvo": MPVO_URL,
+    "short_range_hunt": SHORT_RANGE_HUNT_URL,
+    "long_range_hunt": LONG_RANGE_HUNT_URL,
+    "one_mile": ONE_MILE_URL,
+    "long_range_ffp": LONG_RANGE_FFP,
+}
 
 HEADERS = {
     'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36'
@@ -26,20 +40,7 @@ ROOT_DIR = Path(__file__).parent.parent
 DATA_DIR = ROOT_DIR / "data"
 SAGE_RAT_OUTPUT_DIR = DATA_DIR / "sage_rat"
 
-RDS = "rds"
-OPEN_REFLEX = "open reflex"
-CLOSED_REFLEX = "closed reflex"
-HOLOGRAPHIC = "holographic"
-FIXED_POWER = "fixed power"
-LPVO = "LPVO"
-MPVO = "MPVO"
-MAGNIFIER = "magnifier"
-PRISM = "prism"
-
-DOT_GROUP = [RDS, OPEN_REFLEX, CLOSED_REFLEX, HOLOGRAPHIC]
-FOV_GROUP = [LPVO, MPVO, MAGNIFIER, FIXED_POWER, PRISM]
-
-BASIC_CSV_HEADERS = ["name", "height", "weight", "raw_desc"]
+BASIC_CSV_HEADERS = ["type", "name", "raw_desc"]
 
 size_pattern = re.compile(r"(\d+\.?\d*)\s?(in|oz)", re.IGNORECASE)
 fov_pattern = re.compile(r"FOV ft@100yds:\s*(\d+\.?\d*)", re.IGNORECASE)

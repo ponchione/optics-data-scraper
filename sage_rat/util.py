@@ -12,7 +12,7 @@ def clean_raw_desc(raw_desc):
     return raw_desc.strip().removeprefix("Features: ")
 
 
-def collect_content(raw_content):
+def collect_content_rows(raw_content):
     content_rows = raw_content.find_all('td', class_='list-td')
     print(f"Found {len(content_rows)} rows")
 
